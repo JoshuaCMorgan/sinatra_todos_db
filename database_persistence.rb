@@ -49,7 +49,7 @@ class DatabasePersistence
 
   def create_new_list(list_name)
    sql = "INSERT INTO lists (name) VALUES ($1);"
-   query(sql, listname)
+   query(sql, list_name)
   end
 
   def delete_list(id)
@@ -79,7 +79,7 @@ class DatabasePersistence
   end
 
   def mark_all_todos_as_completed(list_id)
-    sql = "UPDATE todos SET complete = true WHERE list_id = $2"
+    sql = "UPDATE todos SET completed = true WHERE list_id = $1"
     query(sql, list_id)
   end 
 
