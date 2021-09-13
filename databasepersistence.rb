@@ -10,6 +10,10 @@ class DatabasePersistence
     @logger = logger
   end
 
+  def disconnect
+    @db.close
+  end
+
   # functions as a wrapper for calling `exec_params` on the db instance variable. Let's us print out message whenever we perform a SQL query
   def query(statement, *params)
     # debugging statement
